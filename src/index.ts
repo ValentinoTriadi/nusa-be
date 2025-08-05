@@ -73,13 +73,19 @@ app.use(
 
 console.log(`Server is running on port ${env.PORT}`);
 
-serve({
-  fetch: app.fetch,
-  port: env.PORT || 5001,
-  tls: {
-    key: fs.readFileSync('./ssl/key.pem'),
-    cert: fs.readFileSync('./ssl/cert.pem'),
-  },
-});
-
-console.log('HTTPS Server running on https://localhost:5001');
+if (env.NODE_ENV === 'production') {
+  serve({
+    fetch: app.fetch,
+    port: env.PORT || 5001,
+  });
+  console.log(`Running in production mode on port ${env.PORT || 5001}`);
+} else {
+  serve({
+    fetch: app.fetch,
+    port: env.PORT || 5001,
+    tls: {
+      key: fs.readFileSync('./ssl/key.pem'),
+      cert: fs.readFileSync('./ssl/cert.pem'),
+    },
+  });
+}

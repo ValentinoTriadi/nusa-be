@@ -3,6 +3,10 @@ import { z } from 'zod';
 
 const EnvSchema = z.object({
   PORT: z.coerce.number().default(5000),
+  NODE_ENV: z
+    .string()
+    .default('development')
+    .transform((value) => value.toLowerCase()),
   DATABASE_URL: z.string().url(),
   ALLOWED_ORIGINS: z
     .string()
