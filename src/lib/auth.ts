@@ -100,9 +100,13 @@ export const auth = betterAuth({
       name: 'nusa-session',
       options: {
         httpOnly: true,
-        sameSite: 'lax', // or "strict" for same-site only
+        sameSite: 'none',
         secure: process.env.NODE_ENV === 'production', // true in production
         path: '/',
+        domain:
+          process.env.NODE_ENV === 'production'
+            ? '.nusa.vtriadi.site'
+            : undefined, // Set domain for production
         maxAge: 60 * 60 * 24 * 7, // 7 days
       },
     },
@@ -111,6 +115,10 @@ export const auth = betterAuth({
     defaultCookieAttributes: {
       sameSite: 'none',
       secure: true,
+      domain:
+        process.env.NODE_ENV === 'production'
+          ? '.nusa.vtriadi.site'
+          : undefined, // Set domain for production
       httpOnly: true,
       partitioned: true,
     },
