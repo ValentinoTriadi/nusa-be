@@ -23,6 +23,13 @@ export const user = pgTable('user', {
   updatedAt: timestamp('updated_at')
     .$defaultFn(() => /* @__PURE__ */ new Date())
     .notNull(),
+  address: text('address'),
+  storeName: text('store_name'),
+  businessId: text('business_id'),
+  businessType: text('business_type'),
+  city: text('city'),
+  province: text('province'),
+  phoneNumber: text('phone_number'),
 });
 
 // Types

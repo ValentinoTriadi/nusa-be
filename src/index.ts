@@ -1,5 +1,7 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { apiReference } from '@scalar/hono-api-reference';
+import { serve } from 'bun';
+import fs from 'fs';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import { RequestIdVariables, requestId } from 'hono/request-id';
@@ -71,4 +73,13 @@ app.use(
 
 console.log(`Server is running on port ${env.PORT}`);
 
-export default app;
+serve({
+  fetch: app.fetch,
+  port: env.PORT || 5001,
+  tls: {
+    key: fs.readFileSync('./ssl/key.pem'),
+    cert: fs.readFileSync('./ssl/cert.pem'),
+  },
+});
+
+console.log('HTTPS Server running on https://localhost:5001');
