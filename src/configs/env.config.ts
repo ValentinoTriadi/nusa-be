@@ -21,6 +21,10 @@ const EnvSchema = z.object({
   BETTER_AUTH_URL: z.string(),
   GOOGLE_CLIENT_ID: z.string().optional(),
   GOOGLE_CLIENT_SECRET: z.string().optional(),
+  S3_BUCKET_NAME: z.string(),
+  S3_ACCESS_KEY_ID: z.string(),
+  S3_SECRET_ACCESS_KEY: z.string(),
+  S3_ENDPOINT: z.string(),
 });
 
 const result = EnvSchema.safeParse(process.env);
