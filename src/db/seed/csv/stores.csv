@@ -1,0 +1,4 @@
+userEmail,storeName,businessType,businessDescription,description,phoneNumber,address,city,province,postalCode,tags
+budi@example.com,Berkah Jaya,Pertanian,"Produsen gula aren organik dan produk pertanian","Toko yang menyediakan produk organik berkualitas tinggi",+628123456789,"Jl. Raya Ciawi No. 123",Bogor,Jawa Barat,16720,"organik,lokal,pertanian"
+sari@example.com,Sari Organik,UMKM,Pengolah produk organik lokal,Spesialis tepung dan produk olahan organik,+628987654321,"Jl. Pajajaran No. 456",Bandung,Jawa Barat,40112,"organik,tepung,olahan"
+ahmad@example.com,Nusantara Fresh,Distributor,Distributor produk segar nusantara,"Menyediakan berbagai produk segar dari seluruh Indonesia",+628111222333,"Jl. Sudirman No. 789",Jakarta,DKI Jakarta,10220,"segar,distributor,nusantara"
