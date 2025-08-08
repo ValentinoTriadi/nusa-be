@@ -6,6 +6,7 @@ import {
   createProductSchema,
   readProductListWithStoreSchema,
   readProductSchema,
+  readProductWithStoreSchema,
   updateProductSchema,
 } from '@/types/product.type';
 
@@ -40,7 +41,7 @@ export const getProductRoute = createRoute({
   operationId: 'getProduct',
   tags: ['product'],
   method: 'get',
-  path: '/product/:id',
+  path: '/product/{id}',
   request: {
     params: idParamsSchema,
   },
@@ -49,7 +50,7 @@ export const getProductRoute = createRoute({
       description: 'Product retrieved successfully',
       content: {
         'application/json': {
-          schema: createResponseSchema(readProductSchema),
+          schema: createResponseSchema(readProductWithStoreSchema),
         },
       },
     },
@@ -61,7 +62,7 @@ export const updateProductRoute = createRoute({
   operationId: 'updateProduct',
   tags: ['product'],
   method: 'put',
-  path: '/product/:id',
+  path: '/product/{id}',
   request: {
     params: idParamsSchema,
     body: {
@@ -89,7 +90,7 @@ export const deleteProductRoute = createRoute({
   operationId: 'deleteProduct',
   tags: ['product'],
   method: 'delete',
-  path: '/product/:id',
+  path: '/product/{id}',
   request: {
     params: idParamsSchema,
   },

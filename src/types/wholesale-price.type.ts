@@ -11,7 +11,8 @@ export const createWholesalePriceSchema = createInsertSchema(
 });
 
 // Read
-export const readWholesalePriceSchema = createSelectSchema(wholesalePrice);
+export const readWholesalePriceSchema =
+  createSelectSchema(wholesalePrice).openapi('WholesalePrice');
 export const readWholesalePriceListSchema = z.array(readWholesalePriceSchema);
 
 // Update

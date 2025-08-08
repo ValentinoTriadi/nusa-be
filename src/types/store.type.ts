@@ -17,12 +17,14 @@ export const createStoreSchema = createInsertSchema(store).omit({
 export const readStoreSchema = createSelectSchema(store, {
   createdAt: z.union([z.string(), z.date()]),
   updatedAt: z.union([z.string(), z.date()]),
-});
+}).openapi('Store');
 export const readStoreListSchema = z.array(readStoreSchema);
 
-export const readStoreWithUserSchema = readStoreSchema.extend({
-  user: readUserSchema,
-});
+export const readStoreWithUserSchema = readStoreSchema
+  .extend({
+    user: readUserSchema,
+  })
+  .openapi('StoreWithUser');
 export const readStoreListWithUserSchema = z.array(readStoreWithUserSchema);
 
 // Update

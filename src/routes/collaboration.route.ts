@@ -40,7 +40,7 @@ export const getCollaborationRoute = createRoute({
   operationId: 'getCollaboration',
   tags: ['collaboration'],
   method: 'get',
-  path: '/collaboration/:id',
+  path: '/collaboration/{id}',
   request: {
     params: idParamsSchema,
   },
@@ -61,7 +61,7 @@ export const updateCollaborationRoute = createRoute({
   operationId: 'updateCollaboration',
   tags: ['collaboration'],
   method: 'put',
-  path: '/collaboration/:id',
+  path: '/collaboration/{id}',
   request: {
     params: idParamsSchema,
     body: {
@@ -89,7 +89,7 @@ export const deleteCollaborationRoute = createRoute({
   operationId: 'deleteCollaboration',
   tags: ['collaboration'],
   method: 'delete',
-  path: '/collaboration/:id',
+  path: '/collaboration/{id}',
   request: {
     params: idParamsSchema,
   },

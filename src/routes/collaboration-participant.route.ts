@@ -40,7 +40,7 @@ export const getCollaborationParticipantRoute = createRoute({
   operationId: 'getCollaborationParticipant',
   tags: ['collaboration-participant'],
   method: 'get',
-  path: '/collaboration-participant/:id',
+  path: '/collaboration-participant/{id}',
   request: {
     params: idParamsSchema,
   },
@@ -61,7 +61,7 @@ export const updateCollaborationParticipantRoute = createRoute({
   operationId: 'updateCollaborationParticipant',
   tags: ['collaboration-participant'],
   method: 'put',
-  path: '/collaboration-participant/:id',
+  path: '/collaboration-participant/{id}',
   request: {
     params: idParamsSchema,
     body: {
@@ -89,7 +89,7 @@ export const deleteCollaborationParticipantRoute = createRoute({
   operationId: 'deleteCollaborationParticipant',
   tags: ['collaboration-participant'],
   method: 'delete',
-  path: '/collaboration-participant/:id',
+  path: '/collaboration-participant/{id}',
   request: {
     params: idParamsSchema,
   },

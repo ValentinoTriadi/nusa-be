@@ -40,7 +40,7 @@ export const getStoreRoute = createRoute({
   operationId: 'getStore',
   tags: ['store'],
   method: 'get',
-  path: '/store/:id',
+  path: '/store/{id}',
   request: {
     params: idParamsSchema,
   },
@@ -79,7 +79,7 @@ export const updateStoreRoute = createRoute({
   operationId: 'updateStore',
   tags: ['store'],
   method: 'put',
-  path: '/store/:id',
+  path: '/store/{id}',
   request: {
     params: idParamsSchema,
     body: {
@@ -107,7 +107,7 @@ export const deleteStoreRoute = createRoute({
   operationId: 'deleteStore',
   tags: ['store'],
   method: 'delete',
-  path: '/store/:id',
+  path: '/store/{id}',
   request: {
     params: idParamsSchema,
   },

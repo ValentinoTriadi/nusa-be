@@ -40,7 +40,7 @@ export const getFavoriteRoute = createRoute({
   operationId: 'getFavorite',
   tags: ['favorite'],
   method: 'get',
-  path: '/favorite/:id',
+  path: '/favorite/{id}',
   request: {
     params: idParamsSchema,
   },
@@ -61,7 +61,7 @@ export const updateFavoriteRoute = createRoute({
   operationId: 'updateFavorite',
   tags: ['favorite'],
   method: 'put',
-  path: '/favorite/:id',
+  path: '/favorite/{id}',
   request: {
     params: idParamsSchema,
     body: {
@@ -89,7 +89,7 @@ export const deleteFavoriteRoute = createRoute({
   operationId: 'deleteFavorite',
   tags: ['favorite'],
   method: 'delete',
-  path: '/favorite/:id',
+  path: '/favorite/{id}',
   request: {
     params: idParamsSchema,
   },

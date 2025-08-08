@@ -40,7 +40,7 @@ export const getWholesalePriceRoute = createRoute({
   operationId: 'getWholesalePrice',
   tags: ['wholesale-price'],
   method: 'get',
-  path: '/wholesale-price/:id',
+  path: '/wholesale-price/{id}',
   request: {
     params: idParamsSchema,
   },
@@ -61,7 +61,7 @@ export const updateWholesalePriceRoute = createRoute({
   operationId: 'updateWholesalePrice',
   tags: ['wholesale-price'],
   method: 'put',
-  path: '/wholesale-price/:id',
+  path: '/wholesale-price/{id}',
   request: {
     params: idParamsSchema,
     body: {
@@ -89,7 +89,7 @@ export const deleteWholesalePriceRoute = createRoute({
   operationId: 'deleteWholesalePrice',
   tags: ['wholesale-price'],
   method: 'delete',
-  path: '/wholesale-price/:id',
+  path: '/wholesale-price/{id}',
   request: {
     params: idParamsSchema,
   },

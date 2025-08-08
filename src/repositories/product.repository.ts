@@ -37,11 +37,13 @@ export async function createProduct(
 }
 
 export async function getProduct(db: Database, params: IdParams) {
-  const res = await db
-    .select()
-    .from(product)
-    .where(eq(product.id, params.id))
-    .then(first);
+  const res = await db.query.product.findFirst({
+    where: eq(product.id, params.id),
+    with: {
+      store: true,
+      wholesalePrices: true,
+    },
+  });
 
   if (!res) {
     return createErrorResponse('Product not found', 404);

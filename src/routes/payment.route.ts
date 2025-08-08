@@ -40,7 +40,7 @@ export const getPaymentRoute = createRoute({
   operationId: 'getPayment',
   tags: ['payment'],
   method: 'get',
-  path: '/payment/:id',
+  path: '/payment/{id}',
   request: {
     params: idParamsSchema,
   },
@@ -61,7 +61,7 @@ export const updatePaymentRoute = createRoute({
   operationId: 'updatePayment',
   tags: ['payment'],
   method: 'put',
-  path: '/payment/:id',
+  path: '/payment/{id}',
   request: {
     params: idParamsSchema,
     body: {
@@ -89,7 +89,7 @@ export const deletePaymentRoute = createRoute({
   operationId: 'deletePayment',
   tags: ['payment'],
   method: 'delete',
-  path: '/payment/:id',
+  path: '/payment/{id}',
   request: {
     params: idParamsSchema,
   },

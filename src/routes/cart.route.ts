@@ -40,7 +40,7 @@ export const getCartRoute = createRoute({
   operationId: 'getCart',
   tags: ['cart'],
   method: 'get',
-  path: '/cart/:id',
+  path: '/cart/{id}',
   request: {
     params: idParamsSchema,
   },
@@ -61,7 +61,7 @@ export const updateCartRoute = createRoute({
   operationId: 'updateCart',
   tags: ['cart'],
   method: 'put',
-  path: '/cart/:id',
+  path: '/cart/{id}',
   request: {
     params: idParamsSchema,
     body: {
@@ -89,7 +89,7 @@ export const deleteCartRoute = createRoute({
   operationId: 'deleteCart',
   tags: ['cart'],
   method: 'delete',
-  path: '/cart/:id',
+  path: '/cart/{id}',
   request: {
     params: idParamsSchema,
   },

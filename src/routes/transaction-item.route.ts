@@ -40,7 +40,7 @@ export const getTransactionItemRoute = createRoute({
   operationId: 'getTransactionItem',
   tags: ['transaction-item'],
   method: 'get',
-  path: '/transaction-item/:id',
+  path: '/transaction-item/{id}',
   request: {
     params: idParamsSchema,
   },
@@ -61,7 +61,7 @@ export const updateTransactionItemRoute = createRoute({
   operationId: 'updateTransactionItem',
   tags: ['transaction-item'],
   method: 'put',
-  path: '/transaction-item/:id',
+  path: '/transaction-item/{id}',
   request: {
     params: idParamsSchema,
     body: {
@@ -89,7 +89,7 @@ export const deleteTransactionItemRoute = createRoute({
   operationId: 'deleteTransactionItem',
   tags: ['transaction-item'],
   method: 'delete',
-  path: '/transaction-item/:id',
+  path: '/transaction-item/{id}',
   request: {
     params: idParamsSchema,
   },
