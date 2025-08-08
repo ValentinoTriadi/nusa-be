@@ -55,29 +55,6 @@ export const auth = betterAuth({
   },
   user: {
     modelName: 'user',
-    additionalFields: {
-      address: {
-        type: 'string',
-      },
-      storeName: {
-        type: 'string',
-      },
-      businessId: {
-        type: 'string',
-      },
-      businessType: {
-        type: 'string',
-      },
-      city: {
-        type: 'string',
-      },
-      province: {
-        type: 'string',
-      },
-      phoneNumber: {
-        type: 'string',
-      },
-    },
     changeEmail: {
       enabled: true,
       // sendChangeEmailVerification: async ({ user, newEmail, url, token }) => {
@@ -113,6 +90,7 @@ export const auth = betterAuth({
   },
   advanced: {
     defaultCookieAttributes: {
+      name: 'nusa-session',
       sameSite: 'none',
       secure: true,
       domain:

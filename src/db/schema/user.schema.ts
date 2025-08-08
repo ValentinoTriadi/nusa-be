@@ -6,7 +6,7 @@ import {
   varchar,
 } from 'drizzle-orm/pg-core';
 
-import { createId } from '../db-helper';
+import { createId, getNow } from '../db-helper';
 
 export const user = pgTable('user', {
   id: varchar('id').primaryKey().unique().$defaultFn(createId),
@@ -17,19 +17,8 @@ export const user = pgTable('user', {
     .notNull(),
   image: text('image'),
   bio: text('bio'),
-  createdAt: timestamp('created_at')
-    .$defaultFn(() => /* @__PURE__ */ new Date())
-    .notNull(),
-  updatedAt: timestamp('updated_at')
-    .$defaultFn(() => /* @__PURE__ */ new Date())
-    .notNull(),
-  address: text('address'),
-  storeName: text('store_name'),
-  businessId: text('business_id'),
-  businessType: text('business_type'),
-  city: text('city'),
-  province: text('province'),
-  phoneNumber: text('phone_number'),
+  createdAt: timestamp('created_at').$defaultFn(getNow).notNull(),
+  updatedAt: timestamp('updated_at').$defaultFn(getNow).notNull(),
 });
 
 // Types

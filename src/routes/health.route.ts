@@ -4,7 +4,7 @@ import { healthSchema, protectedHealthSchema } from '@/types/health.type';
 
 export const healthRoute = createRoute({
   operationId: 'health',
-  tags: ['Health'],
+  tags: ['health'],
   method: 'get',
   path: '/health',
   request: {},
@@ -22,7 +22,7 @@ export const healthRoute = createRoute({
 
 export const protectedHealthRoute = createRoute({
   operationId: 'protectedhealth',
-  tags: ['Health'],
+  tags: ['health'],
   method: 'get',
   path: '/health/protected',
   request: {},

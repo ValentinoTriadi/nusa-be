@@ -15,6 +15,13 @@
       "when": 1754363384386,
       "tag": "0001_dizzy_thunderbolt_ross",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1754619435959,
+      "tag": "0002_sturdy_chronomancer",
+      "breakpoints": true
     }
   ]
 }

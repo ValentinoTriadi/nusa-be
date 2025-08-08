@@ -45,7 +45,17 @@ app.doc('/openapi.json', {
     version: '1.0.0',
     title: 'AInstein API',
   },
-  tags: [{ name: 'health', description: 'Health Check API' }],
+  tags: [
+    { name: 'health', description: 'Health Check API' },
+    { name: 'store', description: 'Store API' },
+    { name: 'product', description: 'Product API' },
+    { name: 'wholesale-price', description: 'Wholesale Price API' },
+    { name: 'cart', description: 'Shopping Cart API' },
+    { name: 'favorite', description: 'Favorites API' },
+    { name: 'transaction', description: 'Transaction API' },
+    { name: 'user', description: 'User API' },
+    { name: 'auth', description: 'Authentication API' },
+  ],
 });
 app.get(
   '/docs',
