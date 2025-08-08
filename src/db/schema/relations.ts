@@ -41,9 +41,9 @@ export const storeRelations = relations(store, ({ one }) => ({
 
 // Product Relations
 export const productRelations = relations(product, ({ one, many }) => ({
-  seller: one(user, {
-    fields: [product.sellerId],
-    references: [user.id],
+  store: one(store, {
+    fields: [product.storeId],
+    references: [store.id],
   }),
   wholesalePrices: many(wholesalePrice),
   favorites: many(favorite),

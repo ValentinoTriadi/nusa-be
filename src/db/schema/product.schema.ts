@@ -17,7 +17,7 @@ export const product = pgTable('product', {
   unit: text('unit'),
   stock: integer('stock'),
   tags: text('tags').array(),
-  sellerId: varchar('seller_id').notNull(),
+  storeId: varchar('store_id').notNull(),
   createdAt: timestamp('created_at').$defaultFn(getNow),
 });
 

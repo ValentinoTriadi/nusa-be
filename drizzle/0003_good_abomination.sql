@@ -1,0 +1,1 @@
+ALTER TABLE "product" RENAME COLUMN "seller_id" TO "store_id";

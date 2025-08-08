@@ -1,8 +1,8 @@
-import { and, eq } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
 
 import { first } from '@/db/db-helper';
 import { Database } from '@/db/drizzle';
-import { product } from '@/db/schema';
+import { product, store } from '@/db/schema';
 import { createErrorResponse, createSuccessResponse } from '@/lib';
 import { IdParams } from '@/types/generic.type';
 import { CreateProduct, UpdateProduct } from '@/types/product.type';
@@ -13,11 +13,19 @@ export async function createProduct(
   user: SessionUser,
   body: CreateProduct,
 ) {
+  const storeRes = await db.query.store.findFirst({
+    where: eq(store?.userId, user.id),
+  });
+
+  if (!storeRes) {
+    return createErrorResponse('Store not found or unauthorized', 404);
+  }
+
   const res = await db
     .insert(product)
     .values({
       ...body,
-      sellerId: user.id,
+      storeId: storeRes.id,
     })
     .returning()
     .then(first);
@@ -47,10 +55,21 @@ export async function updateProduct(
   params: IdParams,
   body: UpdateProduct,
 ) {
+  const storeRes = await db.query.product.findFirst({
+    where: eq(product.id, params.id),
+    with: {
+      store: true,
+    },
+  });
+
+  if (!storeRes || storeRes.store.userId !== user.id) {
+    return createErrorResponse('Product not found or unauthorized', 404);
+  }
+
   const res = await db
     .update(product)
     .set(body)
-    .where(and(eq(product.sellerId, user.id), eq(product.id, params.id)))
+    .where(eq(product.id, params.id))
     .returning()
     .then(first);
 
@@ -66,9 +85,20 @@ export async function deleteProduct(
   user: SessionUser,
   params: IdParams,
 ) {
+  const storeRes = await db.query.product.findFirst({
+    where: eq(product.id, params.id),
+    with: {
+      store: true,
+    },
+  });
+
+  if (!storeRes || storeRes.store.userId !== user.id) {
+    return createErrorResponse('Product not found or unauthorized', 404);
+  }
+
   const res = await db
     .delete(product)
-    .where(and(eq(product.sellerId, user.id), eq(product.id, params.id)))
+    .where(eq(product.id, params.id))
     .returning()
     .then(first);
 
@@ -80,7 +110,12 @@ export async function deleteProduct(
 }
 
 export async function listProducts(db: Database) {
-  const res = await db.select().from(product);
+  const res = await db.query.product.findMany({
+    with: {
+      store: true,
+      wholesalePrices: true,
+    },
+  });
 
   return createSuccessResponse(res, 'Products retrieved successfully');
 }

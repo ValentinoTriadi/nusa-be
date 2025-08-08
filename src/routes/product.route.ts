@@ -4,7 +4,7 @@ import { GenericErrorResponses, createResponseSchema } from '@/lib';
 import { idParamsSchema } from '@/types/generic.type';
 import {
   createProductSchema,
-  readProductListSchema,
+  readProductListWithStoreSchema,
   readProductSchema,
   updateProductSchema,
 } from '@/types/product.type';
@@ -116,7 +116,7 @@ export const listProductsRoute = createRoute({
       description: 'Products retrieved successfully',
       content: {
         'application/json': {
-          schema: createResponseSchema(readProductListSchema),
+          schema: createResponseSchema(readProductListWithStoreSchema),
         },
       },
     },

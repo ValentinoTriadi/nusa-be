@@ -28,8 +28,7 @@ protectedStoreRouter.openapi(createStoreRoute, async (c) => {
 });
 
 protectedStoreRouter.openapi(listStoresRoute, async (c) => {
-  const user = c.var.user || undefined;
-  const res = await listStores(db, user);
+  const res = await listStores(db);
   return create200Response(c, res);
 });
 

@@ -96,12 +96,8 @@ export async function deleteStore(
   return createSuccessResponse(res, 'Store deleted successfully');
 }
 
-export async function listStores(db: Database, user: SessionUser) {
-  const res = await db.select().from(store).where(eq(store.userId, user.id));
-
-  if (!res) {
-    return createErrorResponse('No stores found', 404);
-  }
+export async function listStores(db: Database) {
+  const res = await db.select().from(store);
 
   return createSuccessResponse(res, 'Stores retrieved successfully');
 }
